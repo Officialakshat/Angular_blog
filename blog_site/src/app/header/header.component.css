@@ -1,0 +1,72 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: rgba(255, 255, 255, 0.15); /* Transparent background */
+  border-bottom: 1px solid #ddd;
+  backdrop-filter: blur(8px); /* Optional: adds a glassmorphism effect */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3399ff;
+}
+
+.nav-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #3399ff;
+  font-size: 16px;
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #66fcf1;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: #66fcf1;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus::after {
+  width: 100%;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-right: 10px;
+}
+
+.register-btn {
+  background-color: #3399ff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.register-btn:hover {
+  background-color: #2874cc;
+}   

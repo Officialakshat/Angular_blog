@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BlogSite</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="study-icon.jpg">
+  <!-- ...existing code... -->
+
+<!-- ...existing code... -->
+ <style>
+  /* Main glowing dot */
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 12px; height: 12px;
+  background: #4a81f0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 16px 4px #4a81f0, 0 0 32px 8px #1f2833;
+  transition: background 0.2s, transform 0.1s;
+  mix-blend-mode: lighten;
+}
+/* Trailing ring */
+.cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 40px; height: 40px;
+  border: 2px solid #4a81f0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: border-color 0.2s;
+  box-shadow: 0 0 24px 2px #4a81f0;
+  mix-blend-mode: lighten;
+  opacity: 0.6;
+}
+ </style>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+<script>
+  // Attractive animated cursor: dot + trailing ring
+  const dot = document.createElement('div');
+  dot.classList.add('cursor-dot');
+  const ring = document.createElement('div');
+  ring.classList.add('cursor-ring');
+  document.body.appendChild(ring);
+  document.body.appendChild(dot);
+
+  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+  let ringX = mouseX, ringY = mouseY;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+  });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Optional: make ring shrink on click
+  document.addEventListener('mousedown', () => {
+    ring.style.transform = 'translate(-50%, -50%) scale(0.7)';
+    dot.style.transform = 'translate(-50%, -50%) scale(1.3)';
+  });
+  document.addEventListener('mouseup', () => {
+    ring.style.transform = 'translate(-50%, -50%) scale(1)';
+    dot.style.transform = 'translate(-50%, -50%) scale(1)';
+  });
+</script>
+<!-- ...existing code... -->
