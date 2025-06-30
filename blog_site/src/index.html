@@ -10,34 +10,35 @@
 
 <!-- ...existing code... -->
  <style>
-  /* Main glowing dot */
+  /* Main glowing dot - now deep purple with yellow border for high contrast on white */
 .cursor-dot {
   position: fixed;
   top: 0; left: 0;
-  width: 12px; height: 12px;
-  background: #4a81f0;
+  width: 14px; height: 14px;
+  background: #5278e0; /* Deep purple */
+  border: 2px solid #144be2; /* Bright yellow border */
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 16px 4px #4a81f0, 0 0 32px 8px #1f2833;
+  box-shadow: 0 0 16px 4px #144be2, 0 0 32px 8px #144be2;
   transition: background 0.2s, transform 0.1s;
-  mix-blend-mode: lighten;
+  mix-blend-mode: multiply;
 }
-/* Trailing ring */
+/* Trailing ring - yellow for visibility */
 .cursor-ring {
   position: fixed;
   top: 0; left: 0;
   width: 40px; height: 40px;
-  border: 2px solid #4a81f0;
+  border: 2px solid #144be2; /* Yellow ring */
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
   transition: border-color 0.2s;
-  box-shadow: 0 0 24px 2px #4a81f0;
-  mix-blend-mode: lighten;
-  opacity: 0.6;
+  box-shadow: 0 0 24px 2px #144be2;
+  mix-blend-mode: multiply;
+  opacity: 0.7;
 }
  </style>
 </head>
