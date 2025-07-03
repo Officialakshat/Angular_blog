@@ -109,7 +109,7 @@
 }
 
 /* Responsive styles */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .navbar {
     flex-wrap: wrap;
     position: relative;
@@ -155,7 +155,7 @@
 }
 
 /* Desktop styles */
-@media (min-width: 901px) {
+@media (min-width: 1000px) {
   .menu-toggle {
     display: none;
   }
@@ -175,10 +175,6 @@
     width: auto;
     padding: 0.5rem 1rem;
   }
-  .desktop-search {
-    display: block;
-  }
-  .mobile-search {
-    display: none;
-  }
+  
+  
 }
